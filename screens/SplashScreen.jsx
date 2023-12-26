@@ -1,5 +1,6 @@
 import { Text, View,Image,SafeAreaView, ImageBackground, Button, Pressable } from 'react-native';
 import React from 'react'
+import { NavigationActions } from '@react-navigation/native';
 
 export default function SplashScreen({navigation}) {
   return (
@@ -19,8 +20,12 @@ export default function SplashScreen({navigation}) {
                         <Text className='text-lg text-gray-300 pt-5 font-semibold text-center tracking-widest'>One cup coffee make your day productive.</Text>
                         
                     </View>
-                    <Pressable className='flex w-4/5 justify-center items-center' onPress={() => navigation.navigate('home')}>
-                        <View className='flex flex-col justify-center items-center h-20 w-full rounded-3xl bg-orange-400'>
+                    <Pressable className='flex w-4/5 justify-center items-center' onPress={() => navigation.reset({
+                        index: 0,
+                        routes: [{ name: 'home' }],
+                      
+                    })}>
+                        <View className='flex flex-col justify-center items-center h-[70px] w-full rounded-3xl bg-orange-400'>
                             <Text className='text-xl text-white font-bold'>Get Started</Text>
                         </View>
                     </Pressable>
